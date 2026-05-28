@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Focus | NeuroNest</title>
+</head>
+<body>
+    <header>
+        <h1>Focus Session</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="dashboard.html">Dashboard</a></li>
+                <li><a href="focus.html">Focus</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section>
+            <h2>Pomodoro Timer</h2>
+            <article>
+                <p>Time remaining: <strong>25:00</strong></p>
+                <progress value="0" max="1500">0%</progress>
+                <button>Start</button>
+                <button>Pause</button>
+                <button>Reset</button>
+            </article>
+        </section>
+
+        <section>
+            <h2>Session Settings</h2>
+            <form>
+                <label for="work">Work duration (minutes):</label>
+                <input type="number" id="work" name="work" min="5" max="60" value="25">
+
+                <label for="break">Break duration (minutes):</label>
+                <input type="number" id="break" name="break" min="1" max="30" value="5">
+
+                <label for="sessions">Number of sessions:</label>
+                <input type="number" id="sessions" name="sessions" min="1" max="10" value="4">
+            </form>
+        </section>
+
+        <section>
+            <h2>Ambient Sound</h2>
+            <p>Choose background audio to enhance focus:</p>
+            <audio controls>
+                <source src="assets/rain.mp3" type="audio/mpeg">
+                Your browser does not support the audio element.
+            </audio>
+        </section>
+
+        <aside>
+            <h3>Today's Focus Stats</h3>
+            <ul>
+                <li>Sessions completed: <strong>3</strong></li>
+                <li>Total focus time: <strong>75 min</strong></li>
+                <li>Longest streak: <strong>50 min</strong></li>
+            </ul>
+        </aside>
+    </main>
+
+    <footer><p>&copy; 2026 NeuroNest</p></footer>
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Mood | NeuroNest</title>
+</head>
+<body>
+    <header>
+        <h1>Mood Tracker</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="dashboard.html">Dashboard</a></li>
+                <li><a href="mood.html">Mood</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section>
+            <h2>How are you feeling right now?</h2>
+            <form action="#" method="post">
+                <fieldset>
+                    <legend>Select your mood</legend>
+                    <input type="radio" id="great" name="mood" value="great">
+                    <label for="great">😄 Great</label><br>
+                    <input type="radio" id="good" name="mood" value="good">
+                    <label for="good">🙂 Good</label><br>
+                    <input type="radio" id="okay" name="mood" value="okay">
+                    <label for="okay">😐 Okay</label><br>
+                    <input type="radio" id="low" name="mood" value="low">
+                    <label for="low">😔 Low</label><br>
+                    <input type="radio" id="stressed" name="mood" value="stressed">
+                    <label for="stressed">😰 Stressed</label>
+                </fieldset>
+
+                <label for="energy">Energy level:</label>
+                <input type="range" id="energy" name="energy" min="1" max="10" value="5">
+
+                <label for="journal">Journal entry (optional):</label>
+                <textarea id="journal" name="journal" rows="4" cols="40" placeholder="What's on your mind?"></textarea>
+
+                <button type="submit">Save Mood</button>
+            </form>
+        </section>
+
+        <section>
+            <h2>Mood History</h2>
+            <table border="1">
+                <thead>
+                    <tr><th>Date</th><th>Mood</th><th>Energy</th><th>Note</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td><time datetime="2026-05-27">May 27</time></td><td>🙂 Good</td><td>7</td><td>Productive day</td></tr>
+                    <tr><td><time datetime="2026-05-26">May 26</time></td><td>😄 Great</td><td>9</td><td>Finished project</td></tr>
+                    <tr><td><time datetime="2026-05-25">May 25</time></td><td>😐 Okay</td><td>5</td><td>Tired</td></tr>
+                </tbody>
+            </table>
+        </section>
+    </main>
+
+    <footer><p>&copy; 2026 NeuroNest</p></footer>
+</body>
+</html>

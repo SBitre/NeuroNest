@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Habits | NeuroNest</title>
+</head>
+<body>
+    <header>
+        <h1>Habit Tracker</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="dashboard.html">Dashboard</a></li>
+                <li><a href="habits.html">Habits</a></li>
+                <li><a href="tasks.html">Tasks</a></li>
+                <li><a href="focus.html">Focus</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section>
+            <h2>Your Daily Habits</h2>
+            <table border="1">
+                <caption>Weekly Habit Tracker</caption>
+                <thead>
+                    <tr>
+                        <th>Habit</th>
+                        <th>Mon</th>
+                        <th>Tue</th>
+                        <th>Wed</th>
+                        <th>Thu</th>
+                        <th>Fri</th>
+                        <th>Sat</th>
+                        <th>Sun</th>
+                        <th>Streak 🔥</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Drink 8 glasses of water</td>
+                        <td>✔</td><td>✔</td><td>✔</td><td>✔</td><td>✔</td><td>✔</td><td>—</td>
+                        <td>6 days</td>
+                    </tr>
+                    <tr>
+                        <td>Read 30 minutes</td>
+                        <td>✔</td><td>✔</td><td>✘</td><td>✔</td><td>✔</td><td>✔</td><td>—</td>
+                        <td>3 days</td>
+                    </tr>
+                    <tr>
+                        <td>Exercise</td>
+                        <td>✔</td><td>✘</td><td>✔</td><td>✔</td><td>✔</td><td>✘</td><td>—</td>
+                        <td>2 days</td>
+                    </tr>
+                    <tr>
+                        <td>Meditate</td>
+                        <td>✔</td><td>✔</td><td>✔</td><td>✔</td><td>✔</td><td>✔</td><td>—</td>
+                        <td>12 days</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section>
+            <h2>Add a New Habit</h2>
+            <form action="#" method="post">
+                <label for="habit-name">Habit name:</label>
+                <input type="text" id="habit-name" name="habit-name" placeholder="e.g., Journal for 10 minutes" required>
+
+                <label for="frequency">Frequency:</label>
+                <select id="frequency" name="frequency">
+                    <option value="daily">Daily</option>
+                    <option value="weekdays">Weekdays</option>
+                    <option value="weekly">Weekly</option>
+                </select>
+
+                <label for="reminder">Reminder time:</label>
+                <input type="time" id="reminder" name="reminder">
+
+                <fieldset>
+                    <legend>Category</legend>
+                    <input type="radio" id="health" name="category" value="health">
+                    <label for="health">Health</label>
+                    <input type="radio" id="learning" name="category" value="learning">
+                    <label for="learning">Learning</label>
+                    <input type="radio" id="mindfulness" name="category" value="mindfulness">
+                    <label for="mindfulness">Mindfulness</label>
+                </fieldset>
+
+                <button type="submit">Add Habit</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 NeuroNest</p>
+    </footer>
+</body>
+</html>

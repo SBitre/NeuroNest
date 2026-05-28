@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Goals | NeuroNest</title>
+</head>
+<body>
+    <header>
+        <h1>Daily Goals</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="dashboard.html">Dashboard</a></li>
+                <li><a href="goals.html">Goals</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section>
+            <h2>Today's Top 3 Goals</h2>
+            <ol>
+                <li>Complete NeuroNest Week 1 submission ✅</li>
+                <li>Finish 2 focus sessions ⏳</li>
+                <li>Exercise for 30 minutes ⏳</li>
+            </ol>
+        </section>
+
+        <section>
+            <h2>Set a New Goal</h2>
+            <form>
+                <label for="goal">Goal:</label>
+                <input type="text" id="goal" name="goal" required>
+
+                <label for="deadline">Deadline:</label>
+                <input type="datetime-local" id="deadline" name="deadline">
+
+                <label for="category-goal">Category:</label>
+                <select id="category-goal" name="category-goal">
+                    <option>Health</option>
+                    <option>Study</option>
+                    <option>Work</option>
+                    <option>Personal</option>
+                </select>
+
+                <button type="submit">Add Goal</button>
+            </form>
+        </section>
+
+        <section>
+            <h2>Long-Term Goals</h2>
+            <article>
+                <h3>Read 12 books this year</h3>
+                <progress value="4" max="12">4 / 12</progress>
+            </article>
+            <article>
+                <h3>Run a 5K</h3>
+                <progress value="60" max="100">60%</progress>
+            </article>
+        </section>
+    </main>
+
+    <footer><p>&copy; 2026 NeuroNest</p></footer>
+</body>
+</html>
