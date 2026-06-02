@@ -2,11 +2,14 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Habits | NeuroNest</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Manage your daily tasks and to-dos in NeuroNest">
+    <title>Tasks | NeuroNest</title>
+    <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
     <header>
-        <h1>Habit Tracker</h1>
+        <h1>Task Manager</h1>
         <nav>
             <ul>
                 <li><a href="index.html">Home</a></li>
@@ -14,86 +17,123 @@
                 <li><a href="habits.html">Habits</a></li>
                 <li><a href="tasks.html">Tasks</a></li>
                 <li><a href="focus.html">Focus</a></li>
+                <li><a href="mood.html">Mood</a></li>
+                <li><a href="analytics.html">Analytics</a></li>
+                <li><a href="ai-assistant.html">AI Assistant</a></li>
+                <li><a href="goals.html">Goals</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
             </ul>
         </nav>
     </header>
 
     <main>
         <section>
-            <h2>Your Daily Habits</h2>
-            <table border="1">
-                <caption>Weekly Habit Tracker</caption>
+            <h2>Today's Tasks</h2>
+            <table>
+                <caption>Active tasks for <time datetime="2026-05-28">May 28, 2026</time></caption>
                 <thead>
                     <tr>
-                        <th>Habit</th>
-                        <th>Mon</th>
-                        <th>Tue</th>
-                        <th>Wed</th>
-                        <th>Thu</th>
-                        <th>Fri</th>
-                        <th>Sat</th>
-                        <th>Sun</th>
-                        <th>Streak 🔥</th>
+                        <th>Status</th>
+                        <th>Task</th>
+                        <th>Priority</th>
+                        <th>Due</th>
+                        <th>Category</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <td>Drink 8 glasses of water</td>
-                        <td>✔</td><td>✔</td><td>✔</td><td>✔</td><td>✔</td><td>✔</td><td>—</td>
-                        <td>6 days</td>
+                        <td>✅</td>
+                        <td><del>Submit Week 1 documentation</del></td>
+                        <td><mark>High</mark></td>
+                        <td><time datetime="2026-05-28">Today</time></td>
+                        <td>Study</td>
                     </tr>
                     <tr>
-                        <td>Read 30 minutes</td>
-                        <td>✔</td><td>✔</td><td>✘</td><td>✔</td><td>✔</td><td>✔</td><td>—</td>
-                        <td>3 days</td>
+                        <td>⏳</td>
+                        <td>Finish CSS3 styling for NeuroNest</td>
+                        <td><mark>High</mark></td>
+                        <td><time datetime="2026-06-04">Jun 4</time></td>
+                        <td>Study</td>
                     </tr>
                     <tr>
-                        <td>Exercise</td>
-                        <td>✔</td><td>✘</td><td>✔</td><td>✔</td><td>✔</td><td>✘</td><td>—</td>
-                        <td>2 days</td>
+                        <td>⏳</td>
+                        <td>Apply to 5 co-op postings</td>
+                        <td>Medium</td>
+                        <td><time datetime="2026-06-05">Jun 5</time></td>
+                        <td>Career</td>
                     </tr>
                     <tr>
-                        <td>Meditate</td>
-                        <td>✔</td><td>✔</td><td>✔</td><td>✔</td><td>✔</td><td>✔</td><td>—</td>
-                        <td>12 days</td>
+                        <td>⏳</td>
+                        <td>Review AWS SAA practice exam</td>
+                        <td>Medium</td>
+                        <td><time datetime="2026-06-07">Jun 7</time></td>
+                        <td>Study</td>
+                    </tr>
+                    <tr>
+                        <td>📅</td>
+                        <td>Grocery run</td>
+                        <td>Low</td>
+                        <td><time datetime="2026-06-03">Jun 3</time></td>
+                        <td>Personal</td>
                     </tr>
                 </tbody>
             </table>
         </section>
 
         <section>
-            <h2>Add a New Habit</h2>
+            <h2>Add a New Task</h2>
             <form action="#" method="post">
-                <label for="habit-name">Habit name:</label>
-                <input type="text" id="habit-name" name="habit-name" placeholder="e.g., Journal for 10 minutes" required>
+                <label for="task-name">Task description:</label>
+                <input type="text" id="task-name" name="task-name" placeholder="e.g., Finish project report" required>
 
-                <label for="frequency">Frequency:</label>
-                <select id="frequency" name="frequency">
-                    <option value="daily">Daily</option>
-                    <option value="weekdays">Weekdays</option>
-                    <option value="weekly">Weekly</option>
+                <label for="task-priority">Priority:</label>
+                <select id="task-priority" name="task-priority">
+                    <option value="high">High</option>
+                    <option value="medium" selected>Medium</option>
+                    <option value="low">Low</option>
                 </select>
 
-                <label for="reminder">Reminder time:</label>
-                <input type="time" id="reminder" name="reminder">
+                <label for="task-due">Due date and time:</label>
+                <input type="datetime-local" id="task-due" name="task-due">
 
                 <fieldset>
                     <legend>Category</legend>
-                    <input type="radio" id="health" name="category" value="health">
-                    <label for="health">Health</label>
-                    <input type="radio" id="learning" name="category" value="learning">
-                    <label for="learning">Learning</label>
-                    <input type="radio" id="mindfulness" name="category" value="mindfulness">
-                    <label for="mindfulness">Mindfulness</label>
+                    <input type="radio" id="cat-study" name="task-category" value="study">
+                    <label for="cat-study">Study</label>
+                    <input type="radio" id="cat-work" name="task-category" value="work">
+                    <label for="cat-work">Work</label>
+                    <input type="radio" id="cat-career" name="task-category" value="career">
+                    <label for="cat-career">Career</label>
+                    <input type="radio" id="cat-personal" name="task-category" value="personal">
+                    <label for="cat-personal">Personal</label>
                 </fieldset>
 
-                <button type="submit">Add Habit</button>
+                <label for="task-notes">Notes (optional):</label>
+                <textarea id="task-notes" name="task-notes" rows="3" cols="40" placeholder="Any extra context..."></textarea>
+
+                <button type="submit">Add Task</button>
             </form>
         </section>
+
+        <section>
+            <h2>Completed This Week</h2>
+            <article>
+                <h3>📚 Week 1 HTML Submission</h3>
+                <p><del>Build 11 HTML pages with semantic tags</del> — completed on <time datetime="2026-05-28">May 28</time></p>
+            </article>
+            <article>
+                <h3>☁️ AWS Practice Lab</h3>
+                <p><del>Set up VPC with public/private subnets</del> — completed on <time datetime="2026-05-26">May 26</time></p>
+            </article>
+        </section>
+
+        <aside>
+            <h3>Productivity Tip</h3>
+            <p>Tasks marked <mark>High</mark> priority should be tackled during your peak focus hours (9–11 AM, based on your analytics).</p>
+        </aside>
     </main>
 
-    <footer>
-        <p>&copy; 2026 NeuroNest</p>
-    </footer>
+    <footer><p>&copy; 2026 NeuroNest. Built by Sumukh Pitre.</p></footer>
 </body>
 </html>
