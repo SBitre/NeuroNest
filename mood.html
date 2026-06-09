@@ -6,6 +6,7 @@
     <meta name="description" content="Track your daily mood and emotional well-being">
     <title>Mood | NeuroNest</title>
     <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/mood.css">
 </head>
 <body>
     <header>
@@ -33,20 +34,34 @@
             <form action="#" method="post">
                 <fieldset>
                     <legend>Select your mood</legend>
-                    <input type="radio" id="great" name="mood" value="great">
-                    <label for="great">😄 Great</label><br>
-                    <input type="radio" id="good" name="mood" value="good">
-                    <label for="good">🙂 Good</label><br>
-                    <input type="radio" id="okay" name="mood" value="okay">
-                    <label for="okay">😐 Okay</label><br>
-                    <input type="radio" id="low" name="mood" value="low">
-                    <label for="low">😔 Low</label><br>
-                    <input type="radio" id="stressed" name="mood" value="stressed">
-                    <label for="stressed">😰 Stressed</label>
+                    <div class="mood-grid">
+                        <div>
+                            <input type="radio" id="great" name="mood" value="great">
+                            <label for="great"><span class="emoji">😄</span>Great</label>
+                        </div>
+                        <div>
+                            <input type="radio" id="good" name="mood" value="good">
+                            <label for="good"><span class="emoji">🙂</span>Good</label>
+                        </div>
+                        <div>
+                            <input type="radio" id="okay" name="mood" value="okay">
+                            <label for="okay"><span class="emoji">😐</span>Okay</label>
+                        </div>
+                        <div>
+                            <input type="radio" id="low" name="mood" value="low">
+                            <label for="low"><span class="emoji">😔</span>Low</label>
+                        </div>
+                        <div>
+                            <input type="radio" id="stressed" name="mood" value="stressed">
+                            <label for="stressed"><span class="emoji">😰</span>Stressed</label>
+                        </div>
+                    </div>
                 </fieldset>
 
-                <label for="energy">Energy level:</label>
-                <input type="range" id="energy" name="energy" min="1" max="10" value="5">
+                <div class="energy-wrap">
+                    <label for="energy">Energy level (1–10):</label>
+                    <input type="range" id="energy" name="energy" min="1" max="10" value="5">
+                </div>
 
                 <label for="journal">Journal entry (optional):</label>
                 <textarea id="journal" name="journal" rows="4" cols="40" placeholder="What's on your mind?"></textarea>

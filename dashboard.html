@@ -6,6 +6,7 @@
     <meta name="description" content="Your daily NeuroNest productivity dashboard">
     <title>Dashboard | NeuroNest</title>
     <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/dashboard.css">
 </head>
 <body>
     <header>
@@ -28,48 +29,50 @@
     </header>
 
     <main>
-        <section>
-            <h2>Welcome back, Sumukh 👋</h2>
-            <p>Today is <time datetime="2026-05-28">May 28, 2026</time>. Here's your snapshot.</p>
-        </section>
+        <div class="dash-grid">
+            <section class="area-welcome">
+                <h2>Welcome back, Sumukh 👋</h2>
+                <p>Today is <time datetime="2026-05-28">May 28, 2026</time>. Here's your snapshot.</p>
+            </section>
 
-        <section>
-            <h2>Today's Progress</h2>
-            <article>
-                <h3>Habits Completed</h3>
-                <progress value="4" max="6">4 of 6</progress>
-                <p>4 / 6 habits done</p>
-            </article>
-            <article>
-                <h3>Focus Time</h3>
-                <meter value="120" min="0" max="240">120 minutes</meter>
-                <p>120 minutes of deep work</p>
-            </article>
-            <article>
-                <h3>Mood Score</h3>
-                <meter value="8" min="0" max="10">8 / 10</meter>
-                <p>Feeling great today!</p>
-            </article>
-        </section>
+            <section class="area-progress">
+                <h2>Today's Progress</h2>
+                <div class="progress-cards">
+                    <article>
+                        <h3>Habits Completed</h3>
+                        <progress value="4" max="6">4 of 6</progress>
+                        <p>4 / 6 habits done</p>
+                    </article>
+                    <article>
+                        <h3>Focus Time</h3>
+                        <meter value="120" min="0" max="240">120 minutes</meter>
+                        <p>120 minutes of deep work</p>
+                    </article>
+                    <article>
+                        <h3>Mood Score</h3>
+                        <meter value="8" min="0" max="10">8 / 10</meter>
+                        <p>Feeling great today!</p>
+                    </article>
+                </div>
+            </section>
 
-        <section>
-            <h2>Quick Actions</h2>
-            <ul>
-                <li><a href="focus.html">Start a focus session</a></li>
-                <li><a href="habits.html">Log today's habits</a></li>
-                <li><a href="mood.html">Record mood</a></li>
-                <li><a href="goals.html">Review goals</a></li>
-            </ul>
-        </section>
+            <section class="area-actions">
+                <h2>Quick Actions</h2>
+                <ul>
+                    <li><a href="focus.html">Start a focus session</a></li>
+                    <li><a href="habits.html">Log today's habits</a></li>
+                    <li><a href="mood.html">Record mood</a></li>
+                    <li><a href="goals.html">Review goals</a></li>
+                </ul>
+            </section>
 
-        <aside>
-            <h3>AI Tip of the Day</h3>
-            <p><mark>Your focus drops after 2 PM. Try scheduling deep work earlier.</mark></p>
-        </aside>
+            <aside class="area-ai">
+                <h3>AI Tip of the Day</h3>
+                <p><mark>Your focus drops after 2 PM. Try scheduling deep work earlier.</mark></p>
+            </aside>
+        </div>
     </main>
 
-    <footer>
-        <p>&copy; 2026 NeuroNest. Built by Sumukh Pitre.</p>
-    </footer>
+    <footer><p>&copy; 2026 NeuroNest. Built by Sumukh Pitre.</p></footer>
 </body>
 </html>

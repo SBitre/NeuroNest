@@ -1,0 +1,61 @@
+/* === Focus page — giant timer display === */
+
+.timer-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-xl) var(--space-md);
+}
+
+.timer-ring {
+  width: clamp(220px, 40vw, 340px);
+  height: clamp(220px, 40vw, 340px);
+  border-radius: 50%;
+  border: 3px solid var(--neon-cyan);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background:
+    radial-gradient(circle, rgba(0, 240, 255, 0.08), transparent 70%);
+  animation: neonPulse 3s infinite ease-in-out;
+  position: relative;
+}
+
+.timer-ring::before {
+  content: "";
+  position: absolute;
+  inset: -10px;
+  border-radius: 50%;
+  border: 1px solid rgba(0, 240, 255, 0.2);
+}
+
+.timer-display {
+  font-size: clamp(3rem, 8vw, 5rem);
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  background: linear-gradient(135deg, var(--neon-cyan), var(--neon-purple));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  letter-spacing: 2px;
+}
+
+.timer-controls {
+  display: flex;
+  gap: var(--space-md);
+  margin-top: var(--space-xl);
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.timer-controls button { min-width: 100px; }
+
+/* Settings as flex row instead of column */
+.settings-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: var(--space-md);
+}
+
+.settings-row label { display: block; margin-bottom: var(--space-xs); }

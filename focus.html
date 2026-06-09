@@ -6,6 +6,7 @@
     <meta name="description" content="Pomodoro focus timer in NeuroNest">
     <title>Focus | NeuroNest</title>
     <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/focus.css">
 </head>
 <body>
     <header>
@@ -30,28 +31,35 @@
     <main>
         <section>
             <h2>Pomodoro Timer</h2>
-            <article>
-                <p>Time remaining: <strong>25:00</strong></p>
-                <progress value="0" max="1500">0%</progress>
-                <div style="margin-top:1rem">
-                    <button>Start</button>
-                    <button>Pause</button>
-                    <button>Reset</button>
+            <div class="timer-wrap">
+                <div class="timer-ring">
+                    <span class="timer-display">25:00</span>
                 </div>
-            </article>
+                <div class="timer-controls">
+                    <button>Start</button>
+                    <button class="btn-ghost">Pause</button>
+                    <button class="btn-danger">Reset</button>
+                </div>
+            </div>
         </section>
 
         <section>
             <h2>Session Settings</h2>
             <form>
-                <label for="work">Work duration (minutes):</label>
-                <input type="number" id="work" name="work" min="5" max="60" value="25">
-
-                <label for="break">Break duration (minutes):</label>
-                <input type="number" id="break" name="break" min="1" max="30" value="5">
-
-                <label for="sessions">Number of sessions:</label>
-                <input type="number" id="sessions" name="sessions" min="1" max="10" value="4">
+                <div class="settings-row">
+                    <div>
+                        <label for="work">Work duration (min)</label>
+                        <input type="number" id="work" name="work" min="5" max="60" value="25">
+                    </div>
+                    <div>
+                        <label for="break">Break duration (min)</label>
+                        <input type="number" id="break" name="break" min="1" max="30" value="5">
+                    </div>
+                    <div>
+                        <label for="sessions">Number of sessions</label>
+                        <input type="number" id="sessions" name="sessions" min="1" max="10" value="4">
+                    </div>
+                </div>
             </form>
         </section>
 

@@ -1,0 +1,87 @@
+/* === Analytics — dashboard stat-card grid === */
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: var(--space-md);
+  background: transparent;
+  border: none;
+  padding: 0;
+}
+
+.stats-grid article {
+  margin: 0;
+  padding: var(--space-lg);
+  background: linear-gradient(145deg, rgba(0, 240, 255, 0.06), rgba(177, 77, 255, 0.06));
+  border: 1px solid var(--glass-border);
+  position: relative;
+  overflow: hidden;
+}
+
+.stats-grid article::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 80px;
+  height: 80px;
+  background: radial-gradient(circle, var(--neon-cyan) 0%, transparent 70%);
+  opacity: 0.15;
+  border-radius: 50%;
+  transform: translate(30%, -30%);
+}
+
+.stats-grid article h3 {
+  font-size: var(--fs-sm);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--text-secondary);
+  margin-bottom: var(--space-xs);
+}
+
+.stat-value {
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+  font-weight: 700;
+  background: linear-gradient(135deg, var(--neon-cyan), var(--neon-purple));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: block;
+  margin-bottom: var(--space-xs);
+}
+
+/* Top days as ranked podium */
+.podium { list-style: none; padding: 0; counter-reset: rank; }
+
+.podium li {
+  counter-increment: rank;
+  padding: var(--space-md) var(--space-md) var(--space-md) 3.5rem;
+  margin-bottom: var(--space-sm);
+  background: rgba(255, 255, 255, 0.04);
+  border-radius: var(--radius-md);
+  position: relative;
+  border-left: 3px solid var(--neon-cyan);
+  transition: all var(--transition);
+}
+
+.podium li::before {
+  content: counter(rank);
+  position: absolute;
+  left: var(--space-md);
+  top: 50%;
+  transform: translateY(-50%);
+  width: 2rem;
+  height: 2rem;
+  background: linear-gradient(135deg, var(--neon-cyan), var(--neon-purple));
+  border-radius: 50%;
+  color: #0a0e27;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.podium li:hover { transform: translateX(6px); background: rgba(0, 240, 255, 0.08); }
+.podium li:nth-child(1) { border-left-color: var(--neon-yellow); }
+.podium li:nth-child(2) { border-left-color: var(--text-secondary); }
+.podium li:nth-child(3) { border-left-color: #c08850; }

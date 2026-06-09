@@ -6,6 +6,7 @@
     <meta name="description" content="Weekly productivity analytics and insights">
     <title>Analytics | NeuroNest</title>
     <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/analytics.css">
 </head>
 <body>
     <header>
@@ -38,26 +39,28 @@
 
         <section>
             <h2>Key Stats</h2>
-            <article>
-                <h3>Focus Time</h3>
-                <p>Total this week: <strong>14 hours 30 minutes</strong></p>
-                <meter value="870" min="0" max="1200">14h 30m</meter>
-            </article>
-            <article>
-                <h3>Habits Completed</h3>
-                <p><strong>32 / 42</strong> this week</p>
-                <progress value="32" max="42"></progress>
-            </article>
-            <article>
-                <h3>Average Mood</h3>
-                <p><strong>7.4 / 10</strong></p>
-                <meter value="7.4" min="0" max="10">7.4</meter>
-            </article>
+            <div class="stats-grid">
+                <article>
+                    <h3>Focus Time</h3>
+                    <span class="stat-value">14h 30m</span>
+                    <meter value="870" min="0" max="1200">14h 30m</meter>
+                </article>
+                <article>
+                    <h3>Habits Completed</h3>
+                    <span class="stat-value">32 / 42</span>
+                    <progress value="32" max="42"></progress>
+                </article>
+                <article>
+                    <h3>Average Mood</h3>
+                    <span class="stat-value">7.4 / 10</span>
+                    <meter value="7.4" min="0" max="10">7.4</meter>
+                </article>
+            </div>
         </section>
 
         <section>
             <h2>Top Performing Days</h2>
-            <ol>
+            <ol class="podium">
                 <li>Tuesday — 4h focus, 6/6 habits</li>
                 <li>Thursday — 3.5h focus, 5/6 habits</li>
                 <li>Monday — 3h focus, 6/6 habits</li>

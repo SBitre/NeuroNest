@@ -1,0 +1,38 @@
+/* === Dashboard — grid-template-areas layout === */
+
+.dash-grid {
+  display: grid;
+  gap: var(--space-md);
+  grid-template-areas:
+    "welcome welcome"
+    "progress progress"
+    "actions ai-tip";
+  grid-template-columns: 1fr 1fr;
+  background: transparent;
+  border: none;
+  padding: 0;
+}
+
+.area-welcome { grid-area: welcome; }
+.area-progress { grid-area: progress; }
+.area-actions { grid-area: actions; }
+.area-ai { grid-area: ai-tip; }
+
+.progress-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: var(--space-md);
+}
+
+.progress-cards article { margin: 0; }
+
+@media (max-width: 640px) {
+  .dash-grid {
+    grid-template-areas:
+      "welcome"
+      "progress"
+      "actions"
+      "ai-tip";
+    grid-template-columns: 1fr;
+  }
+}
