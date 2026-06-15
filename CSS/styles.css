@@ -516,3 +516,75 @@ main > section:nth-child(4) { animation-delay: 0.35s; }
   a { color: #000; text-decoration: underline; }
   mark { background: #ffff99; color: #000; }
 }
+/* === WEEK 4 ADDITIONS === */
+
+/* Theme toggle button */
+.theme-toggle {
+  position: absolute;
+  top: 1.25rem;
+  right: 1.5rem;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  border-radius: 50%;
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  color: var(--text-primary);
+  cursor: pointer;
+  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all var(--transition);
+  backdrop-filter: blur(10px);
+  margin: 0;
+}
+
+.theme-toggle:hover {
+  transform: rotate(20deg) scale(1.1);
+  box-shadow: var(--shadow-neon);
+  border-color: var(--neon-cyan);
+}
+
+/* Active nav link */
+nav a.active {
+  color: var(--neon-cyan);
+  background: rgba(0, 240, 255, 0.12);
+  border-color: rgba(0, 240, 255, 0.3);
+}
+
+/* Light theme overrides for header/footer (since they used hardcoded dark rgba) */
+[data-theme="light"] header,
+[data-theme="light"] footer {
+  background: rgba(255, 255, 255, 0.8);
+}
+
+[data-theme="light"] body {
+  background:
+    radial-gradient(ellipse at top, #d8e0f5 0%, transparent 50%),
+    radial-gradient(ellipse at bottom, #ead5f5 0%, transparent 50%),
+    var(--bg-primary);
+  background-attachment: fixed;
+}
+
+[data-theme="light"] button,
+[data-theme="light"] .btn {
+  color: #fff;
+}
+
+[data-theme="light"] #hero a {
+  color: #fff;
+}
+
+[data-theme="light"] .stat-value,
+[data-theme="light"] .timer-display,
+[data-theme="light"] header h1,
+[data-theme="light"] #hero h2 {
+  background: linear-gradient(135deg, #006b8f, #6b2db8);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Header needs relative positioning for absolute toggle */
+header { position: sticky; }
