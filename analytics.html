@@ -30,11 +30,33 @@
 
     <main>
         <section>
-            <h2>Weekly Summary</h2>
-            <figure>
-                <img src="assets/images/chart-placeholder.png" alt="Weekly productivity chart" width="500" height="300">
-                <figcaption>Your productivity over the last 7 days</figcaption>
-            </figure>
+            <h2 style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:var(--space-md)">
+                Weekly Trends
+                <span class="export-menu">
+                    <button type="button" class="btn-ghost export-menu-btn" onclick="this.parentElement.classList.toggle('open')">📥 Export ▾</button>
+                    <span class="export-dropdown">
+                        <button type="button" onclick="NN.utils.exportCSV('habits')">Habits (CSV)</button>
+                        <button type="button" onclick="NN.utils.exportCSV('tasks')">Tasks (CSV)</button>
+                        <button type="button" onclick="NN.utils.exportCSV('moods')">Moods (CSV)</button>
+                        <button type="button" onclick="NN.utils.exportCSV('focus')">Focus sessions (CSV)</button>
+                        <button type="button" onclick="NN.utils.exportCSV('all')">Full backup (JSON)</button>
+                    </span>
+                </span>
+            </h2>
+            <div class="charts-grid">
+                <div class="chart-card">
+                    <h3>Focus Minutes — Last 7 Days</h3>
+                    <div class="chart-canvas-wrap"><canvas id="chart-focus"></canvas></div>
+                </div>
+                <div class="chart-card">
+                    <h3>Habits Completed — Last 7 Days</h3>
+                    <div class="chart-canvas-wrap"><canvas id="chart-habits"></canvas></div>
+                </div>
+                <div class="chart-card">
+                    <h3>Mood Score — Last 7 Days</h3>
+                    <div class="chart-canvas-wrap"><canvas id="chart-mood"></canvas></div>
+                </div>
+            </div>
         </section>
 
         <section>
@@ -70,8 +92,10 @@
 
     <footer><p>&copy; 2026 NeuroNest. Built by Sumukh Pitre.</p></footer>
 
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
     <script src="js/store.js" defer></script>
     <script src="js/common.js" defer></script>
+    <script src="js/utils.js" defer></script>
     <script src="js/analytics.js" defer></script>
 </body>
 </html>

@@ -85,3 +85,31 @@
 .podium li:nth-child(1) { border-left-color: var(--neon-yellow); }
 .podium li:nth-child(2) { border-left-color: var(--text-secondary); }
 .podium li:nth-child(3) { border-left-color: #c08850; }
+
+/* === Week 5: Charts === */
+.charts-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: var(--space-md);
+}
+
+.chart-card {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-md);
+  min-height: 280px;
+}
+
+.chart-card h3 {
+  font-size: var(--fs-sm);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--text-secondary);
+  margin-bottom: var(--space-md);
+}
+
+.chart-canvas-wrap {
+  position: relative;
+  height: 220px;
+}

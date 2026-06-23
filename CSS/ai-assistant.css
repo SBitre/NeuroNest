@@ -1,0 +1,51 @@
+/* AI Assistant page styling */
+.ai-chat-log {
+  margin-top: var(--space-lg);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.ai-message {
+  margin: 0;
+  animation: fadeInUp 0.4s ease;
+}
+
+.ai-message h3 {
+  font-size: var(--fs-sm);
+  margin-bottom: var(--space-xs);
+}
+
+.ai-user {
+  background: rgba(0, 240, 255, 0.06);
+  border-color: rgba(0, 240, 255, 0.3);
+}
+
+.ai-user h3 { color: var(--neon-cyan); }
+
+.ai-assistant {
+  background: linear-gradient(135deg, rgba(177, 77, 255, 0.06), rgba(255, 77, 203, 0.06));
+  border-color: rgba(177, 77, 255, 0.3);
+}
+
+.ai-assistant h3 { color: var(--neon-purple); }
+
+.ai-message p {
+  white-space: pre-wrap;
+  line-height: 1.65;
+}
+
+.ai-loading p::after {
+  content: '';
+  display: inline-block;
+  width: 1em;
+  text-align: left;
+  animation: dots 1.5s infinite steps(4, end);
+}
+
+@keyframes dots {
+  0%, 25% { content: ''; }
+  50% { content: '.'; }
+  75% { content: '..'; }
+  100% { content: '...'; }
+}

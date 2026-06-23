@@ -1,21 +1,41 @@
 # NeuroNest
 
-An AI-powered productivity hub for tracking habits, managing tasks, monitoring mood, and getting personalized productivity insights.
+An AI-powered productivity hub for tracking habits, managing tasks, monitoring mood, and getting personalized productivity insights powered by Google Gemini.
 
 **Author:** Sumukh Pitre
 **Course:** Web Design and Development
 **Institution:** Northeastern University
 
+## Features
+
+- 11 fully interactive pages
+- Dark/light theme toggle with persistence
+- LocalStorage-backed habits, tasks, moods, goals, focus sessions
+- Working Pomodoro timer with session logging
+- Chart.js visualizations of weekly trends
+- AI Assistant powered by Google Gemini with personalized context
+- CSV/JSON data export
+- Vim-style keyboard navigation (press `?` for help)
+- First-visit onboarding tour
+- Inline form validation
+- Print stylesheet
+- Mobile responsive
+- Accessibility: `prefers-reduced-motion`, visible focus rings
+
 ## Project Stages
 
 - **Week 1–2:** HTML5 structure across 11 pages ✅
 - **Week 2–3:** CSS3 styling — global theme + page-specific layouts ✅
-- **Week 4–5:** JavaScript interactivity — LocalStorage persistence, working timer, theme toggle, form validation, dynamic stats ✅
-- **Optional:** Gemini API integration for AI Assistant (Week 5+)
+- **Week 4–5:** JavaScript — interactivity, LocalStorage, Gemini AI, charts, exports, shortcuts, onboarding ✅
 
-## Pages
+## Setup (For Gemini AI)
 
-`index.html` · `dashboard.html` · `habits.html` · `tasks.html` · `focus.html` · `mood.html` · `analytics.html` · `ai-assistant.html` · `goals.html` · `about.html` · `contact.html`
+1. Get a Gemini API key from https://aistudio.google.com/
+2. Copy `js/config.example.js` to `js/config.js`
+3. Paste your key into the `GEMINI_API_KEY` field
+4. `js/config.js` is in `.gitignore` and will not be committed
+
+Without an API key, the AI Assistant page still loads — it just shows an error message when you ask a question.
 
 ## File Structure
 NeuroNest/
@@ -26,21 +46,29 @@ NeuroNest/
 
 │   ├── styles.css      # Global theme + components
 
-│   ├── dashboard.css   # grid-template-areas layout
+│   ├── dashboard.css
 
-│   ├── focus.css       # Timer ring
+│   ├── focus.css
 
-│   ├── analytics.css   # Stat cards + podium
+│   ├── analytics.css
 
-│   ├── mood.css        # Emoji selector
+│   ├── mood.css
 
-│   └── tasks.css       # Priority badges
+│   ├── tasks.css
+
+│   └── ai-assistant.css
 
 ├── js/
 
-│   ├── store.js        # LocalStorage data layer
+│   ├── config.example.js  # Template for API key
 
-│   ├── common.js       # Theme toggle + active nav
+│   ├── store.js           # LocalStorage layer
+
+│   ├── common.js          # Theme + active nav
+
+│   ├── utils.js           # CSV/JSON export, shortcuts, notifications
+
+│   ├── onboarding.js      # First-visit tour
 
 │   ├── dashboard.js
 
@@ -54,9 +82,11 @@ NeuroNest/
 
 │   ├── goals.js
 
-│   ├── analytics.js
+│   ├── analytics.js       # Includes Chart.js rendering
 
-│   └── contact.js
+│   ├── contact.js
+
+│   └── ai-assistant.js    # Gemini integration
 
 └── docs/
 
@@ -66,15 +96,24 @@ NeuroNest/
 
 ├── Week3.md
 
-└── Week4.md
+├── Week4.md
 
-## Running Locally
+└── Week5.md
 
-Open `index.html` in any modern browser, or use the VS Code "Live Server" extension for auto-reload during development.
+## Keyboard Shortcuts
+
+Press `?` anywhere to see the full list. Quick reference:
+- `g d` Dashboard · `g h` Habits · `g t` Tasks · `g f` Focus
+- `g m` Mood · `g a` Analytics · `g i` AI Assistant
+- `Ctrl/Cmd + Enter` Submit AI question
 
 ## Reset Data
 
-To clear all stored data, open browser DevTools console and run:
+In the browser DevTools console:
 ```js
 NN.store.reset(); location.reload();
 ```
+
+## Running Locally
+
+Open `index.html` in any modern browser, or use the VS Code "Live Server" extension.

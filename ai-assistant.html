@@ -3,9 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Personalized AI insights and suggestions">
+    <meta name="description" content="Personalized AI insights and suggestions powered by Gemini">
     <title>AI Assistant | NeuroNest</title>
     <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/ai-assistant.css">
 </head>
 <body>
     <header>
@@ -46,9 +47,13 @@
 
         <section>
             <h2>Ask the Assistant</h2>
+            <p style="color:var(--text-secondary);font-size:var(--fs-sm);margin-bottom:var(--space-md)">
+                Powered by Google Gemini. Your questions are sent along with a summary of your NeuroNest data so responses are personalized.
+                <br><small>Tip: press <kbd>Ctrl</kbd>+<kbd>Enter</kbd> (or <kbd>⌘</kbd>+<kbd>Enter</kbd>) to submit.</small>
+            </p>
             <form action="#" method="post">
                 <label for="query">Your question:</label>
-                <textarea id="query" name="query" rows="3" cols="50" placeholder="e.g., How can I improve my focus?"></textarea>
+                <textarea id="query" name="query" rows="3" placeholder="e.g., How can I improve my focus this week?" maxlength="500"></textarea>
                 <button type="submit">Ask AI</button>
             </form>
         </section>
@@ -66,7 +71,10 @@
     <footer><p>&copy; 2026 NeuroNest. Built by Sumukh Pitre.</p></footer>
 
     <script src="js/store.js" defer></script>
+    <script src="js/config.js" defer></script>
     <script src="js/common.js" defer></script>
-    <script src="js/analytics.js" defer></script>
+    <script src="js/utils.js" defer></script>
+    <script src="js/onboarding.js" defer></script>
+    <script src="js/ai-assistant.js" defer></script>
 </body>
 </html>
