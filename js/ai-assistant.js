@@ -44,44 +44,75 @@ document.addEventListener('DOMContentLoaded', () => {
 - Long-term goals: ${state.goals.map(g => `${g.name} (${g.progress}/${g.target})`).join(', ') || 'none set'}`;
   };
 
-  const callGemini = async userQuery => {
-    if (!apiKey) {
-      return {
-        ok: false,
-        text: '⚠️ No API key configured. Add your Gemini API key to js/config.js to enable AI responses. (See js/config.example.js for the template.)'
-      };
+  const callGemini = async (userQuery, attempt = 1) => {
+  if (!apiKey) {
+    return {
+      ok: false,
+      text: '⚠️ No API key configured. Add your Gemini API key to js/config.js to enable AI responses.'
+    };
+  }
+
+  const systemPrompt = `You are NeuroNest's productivity coach. Give concise, practical, encouraging advice based on the user's tracked data. Keep responses under 120 words. Use specific numbers from their data when relevant. Avoid generic platitudes. Always end with a complete sentence.`;
+
+  const context = buildContextSummary();
+  const fullPrompt = `${systemPrompt}\n\n${context}\n\nUser question: ${userQuery}`;
+
+  try {
+    const url = `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${apiKey}`;
+    const response = await fetch(url, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        contents: [{ parts: [{ text: fullPrompt }] }],
+        generationConfig: {
+          temperature: 0.7,
+          maxOutputTokens: 800,
+          topP: 0.95
+        }
+      })
+    });
+
+    if ((response.status === 503 || response.status === 429) && attempt < 3) {
+      const waitMs = attempt * 1500;
+      console.log(`Gemini ${response.status}, retrying in ${waitMs}ms (attempt ${attempt + 1}/3)`);
+      await new Promise(r => setTimeout(r, waitMs));
+      return callGemini(userQuery, attempt + 1);
     }
 
-    const systemPrompt = `You are NeuroNest's productivity coach. Give concise, practical, encouraging advice based on the user's tracked data. Keep responses under 150 words. Use specific numbers from their data when relevant. Avoid generic platitudes.`;
-
-    const context = buildContextSummary();
-    const fullPrompt = `${systemPrompt}\n\n${context}\n\nUser question: ${userQuery}`;
-
-    try {
-      const url = `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${apiKey}`;
-      const response = await fetch(url, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          contents: [{ parts: [{ text: fullPrompt }] }],
-          generationConfig: { temperature: 0.7, maxOutputTokens: 300 }
-        })
-      });
-
-      if (!response.ok) {
-        const errText = await response.text();
-        return { ok: false, text: `API error (${response.status}): ${errText.slice(0, 200)}` };
-      }
-
-      const data = await response.json();
-      const text = data?.candidates?.[0]?.content?.parts?.[0]?.text;
-      if (!text) return { ok: false, text: 'Empty response from Gemini.' };
-
-      return { ok: true, text };
-    } catch (err) {
-      return { ok: false, text: `Network error: ${err.message}` };
+    if (!response.ok) {
+      const errText = await response.text();
+      return { ok: false, text: `API error (${response.status}): ${errText.slice(0, 200)}` };
     }
-  };
+
+    const data = await response.json();
+    const candidate = data?.candidates?.[0];
+    if (!candidate) {
+      console.error('No candidates in response:', data);
+      return { ok: false, text: 'Empty response from Gemini.' };
+    }
+
+    if (candidate.finishReason === 'SAFETY') {
+      return { ok: false, text: 'Response blocked by safety filter. Try rephrasing.' };
+    }
+
+    const parts = candidate.content?.parts || [];
+    const text = parts.map(p => p.text || '').join('').trim();
+
+    if (!text) {
+      console.error('No text in response parts:', candidate);
+      return { ok: false, text: 'Empty response from Gemini. Try again.' };
+    }
+
+    if (candidate.finishReason === 'MAX_TOKENS') {
+      console.warn('Response truncated by maxOutputTokens. Consider raising the limit.');
+    }
+
+    return { ok: true, text };
+  } catch (err) {
+    console.error('Gemini call failed:', err);
+    return { ok: false, text: `Network error: ${err.message}` };
+  }
+};
 
   const renderMessage = (role, text, isLoading = false) => {
     const msg = document.createElement('article');
